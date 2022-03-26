@@ -1,0 +1,497 @@
+body {
+  margin: 0px;
+}
+.Cabecera {
+  background-color: #3acaff;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.Cabecera_Titulo {
+  font-size: 20pt;
+  font-family: Arial, Helvetica, sans-serif;
+  color: aliceblue;
+  text-transform: uppercase;
+}
+
+.Menu {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  background-color: #ffff;
+  z-index: 2;
+}
+
+.Menu_Opcion {
+  color: #707070;
+  text-decoration: none;
+  font: 15pt;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.Menu_Opcion:hover {
+  color: black;
+  font: bolder;
+}
+.Contenido {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "PanelUno PanelDos";
+}
+.Prueba_Dos {
+  grid-area: pruebaDos;
+  background-color: #3acaff;
+}
+.Prueba_Tres {
+  grid-area: pruebaDos;
+  background-color: #a1a1a1;
+}
+.Contenido_Panel_Izquierdo {
+  grid-area: PanelUno;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.Contenido_Panel_Derecho {
+  grid-area: PanelDos;
+  background-color: rgb(255, 255, 255);
+}
+.Card {
+  width: 350px;
+  margin: 30px;
+  padding: 1px;
+  border: 1px solid rgb(92, 92, 92, 0.5);
+  box-shadow: 0px 0px 16px 5px rgb(92, 92, 92, 0.5);
+}
+
+.Card_Public {
+  width: 350px;
+  margin: 30px;
+  padding: 1px;
+  border: 1px solid rgb(92, 92, 92, 0.5);
+  box-shadow: 0px 0px 16px 5px rgb(92, 92, 92, 0.5);
+  background-color: #6cabf3;
+}
+
+.Card_Titulo {
+  font-size: 24px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+  color: #0d0e0e;
+}
+
+.Card_Card_Descrip {
+  text-align: justify;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+}
+
+.Card_VerMas {
+  display: block;
+  text-align: right;
+  width: 100%;
+  color: #094599;
+  text-decoration: none;
+}
+
+.Card:hover {
+  border-color: #000;
+  box-shadow: 0px 0px 16px 5px #000;
+}
+
+.Card:hover .Card_VerMas {
+  color: #000;
+  font-weight: bolder;
+}
+
+.Card:hover .Card_VerMas:hover {
+  text-decoration: underline;
+}
+
+.Card_Titulo_Public {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.Img {
+  width: 100%;
+  height: auto;
+}
+
+.Boton_Enviar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.Campos_FormuTex {
+  margin-left: 20px;
+}
+
+.Recuadro_Formu {
+  margin-left: 80px;
+  margin-top: 20px;
+  border: 1px solid #000000;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  padding: 10px;
+}
+
+.Contenido_PanelInferior {
+  background: #0a70fe;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  flex-direction: column;
+  display: block;
+}
+
+.Icono_Div {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color:  red;
+    position: absolute;
+    z-index: 1;
+}
+.Icono_Div_blue {
+        background-color: blue;
+        position: fixed;
+
+}
+.btn {
+	border: none;
+	font-family: 'Lato';
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	padding: 25px 80px;
+	display: inline-block;
+	margin: 15px 30px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.btn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* Pseudo elements for icons */
+.btn:before {
+	font-family: 'FontAwesome';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+/* Icon separator */
+.btn-sep {
+	padding: 25px 60px 25px 120px;
+}
+
+.btn-sep:before {
+	background: rgba(0,0,0,0.15);
+}
+
+/* Button 1 */
+.btn-1 {
+	background: #3498db;
+	color: #fff;
+}
+
+.btn-1:hover {
+	background: #2980b9;
+}
+
+.btn-1:active {
+	background: #2980b9;
+	top: 2px;
+}
+
+.btn-1:before {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	line-height: 3;
+	font-size: 140%;
+	width: 60px;
+}
+
+/* Button 2 */
+.btn-2 {
+	background: #2ecc71;
+	color: #fff;
+}
+
+.btn-2:hover {
+	background: #27ae60;
+}
+
+.btn-2:active {
+	background: #27ae60;
+	top: 2px;
+}
+
+.btn-2:before {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	line-height: 3;
+	font-size: 140%;
+	width: 60px;
+}
+
+/* Button 3 */
+.btn-3 {
+	background: #e74c3c;
+	color: #fff;
+}
+
+.btn-3:hover {
+	background: #c0392b;
+}
+
+.btn-3:active {
+	background: #c0392b;
+	top: 2px;
+}
+
+.btn-3:before {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	line-height: 3;
+	font-size: 140%;
+	width: 60px;
+}
+
+/* Button 3 */
+.btn-4 {
+	background: #34495e;
+	color: #fff;
+}
+
+.btn-4:hover {
+	background: #2c3e50;
+}
+
+.btn-4:active {
+	background: #2c3e50;
+	top: 2px;
+}
+
+.btn-4:before {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	line-height: 3;
+	font-size: 140%;
+	width: 60px;
+}
+
+/*************************** ICON FONTS ***************************/
+
+/* Icons */
+
+.icon-cart:before {
+	content: "f07a";
+}
+
+.icon-Eliminar:before {
+	content: "\f1f8";
+}
+
+.icon-Agregar:before {
+	content: "\e4ee";
+}
+
+.icon-Editar:before {
+	content: "\f044";
+}
+
+.icon-Mas:before {
+	content: "\f068";
+}
+.fa-mas:before {
+	content: "\2b";
+}
+
+
+/*************************** Acordion ***************************/
+
+.Acordion{
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  display:none;
+}
+.Acordion p{
+  padding: 10px 15px;
+  margin: 0;
+  color: #333;
+}
+.Colocar{
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #f5f5f5;
+}
+.Colocar > a{
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  -webkit-transition:all 0.2s linear;
+  -moz-transition:all 0.2s linear;
+  transition:all 0.2s linear;
+}
+.Colocar > a i{
+  float: right;
+  margin-top: 2px;
+}
+.Colocar > a.active{
+  background-color:#3399cc;
+  color: #fff;
+}
+
+/*************************** Formulario ***************************/
+
+
+body{
+	height: 100%; 
+	font-family: 'Noto Sans', sans-serif;
+  
+}
+
+
+.contact_form{	
+	width: 490px; 
+  height: auto;
+  margin: 80px auto;
+	border-radius: 10px;  
+	padding-top: 30px;
+	padding-bottom: 20px;  
+  background-color: #d0f1f5; 
+  padding-left: 30px; 
+}
+
+
+input{
+	background-color: #fbfbfb; 
+	width: 408px; 
+	height: 40px; 
+	border-radius: 5px;  
+	border-style: solid; 
+	border-width: 1px; 
+	border-color: #ab4493; 
+	margin-top: 10px;  
+	padding-left: 10px;
+  margin-bottom: 20px; 
+}
+
+
+textarea{
+  background-color: #fbfbfb; 
+	width: 405px; 
+	height: 150px; 
+	border-radius: 5px;  
+	border-style: solid; 
+	border-width: 1px; 
+	border-color: #ab4493; 
+	margin-top: 10px;  
+	padding-left: 10px;
+  margin-bottom: 20px; 
+  padding-top: 15px; 
+}
+
+
+label{
+  display: block; 
+	float: center; 	
+}
+
+span{
+	color: #ab4493; 
+}
+
+
+.aviso{
+	font-size: 13px;  
+	color: #0e0e0e;  
+}
+
+
+h1{
+	font-size: 39px;  
+	text-align: letf; 
+	padding-bottom: 20px; 
+	color: #030303;
+}
+
+
+h3{
+	font-size: 16px; 
+	padding-bottom: 30px;
+	color: #0e0e0e;   
+}
+
+
+p{
+	font-size: 14px; 
+	color: #0e0e0e; 
+}
+
+
+::-webkit-input-placeholder {
+ color: #a8a8a8;
+}
+
+
+::-webkit-textarea-placeholder {
+ color: #a8a8a8;
+}
+
+
+.formulario input:focus{
+	outline:0;
+	border: 1px solid #97d848;
+}
+
+
+.formulario textarea:focus{
+	outline:0;
+	border: 1px solid #97d848;
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inicio</title>
+    <link rel="Stylesheet" href="CSS/Estilos.css" />
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/7aa93029b3.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    
+    <header class="Cabecera">
+      <h1 class="Cabecera_Titulo">Taller Maestro Detalle</h1>
+    </header>
+    <nav class="Menu">
+      <a class="Menu_Opcion" href="http://www.google.com" target="_blank">
+        <button class="btn btn-1 btn-sep icon-Agregar">AGREGAR</button>
+      </a>
+      <a
+        class="Menu_Opcion"
+        href="https://www.uniboyaca.edu.co/"
+        target="_blank"
+        > <button class="btn btn-1 btn-sep icon-Editar">MODIFICAR</button></a
+      >
+      <a class="Menu_Opcion" href="https://es-la.facebook.com/" target="_blank"
+        > <button class="btn btn-1 btn-sep icon-Eliminar">BORRAR</button>
+      </a>
+     
+    </nav>
+    <section class="Contenido">
+      <section class="Contenido_Panel_Izquierdo">
+        
+        <article class="Card">
+          <div class="Colocar">
+            <a href="#">
+              Tema 1 
+              <i class="fa fa-mas icon-Mas"></i>
+            </a>
+            <div class="Acordion">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+            </div>
+          </div>
+          <a class="Card_VerMas" href="Formulario_Agregar.html">Ver Más....</a>
+        </article>
+        <article class="Card">
+          <div class="Colocar">
+            <a href="#">
+              Tema 2 
+              <i class="fa fa-mas icon-Mas"></i>
+            </a>
+            <div class="Acordion">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+            </div>
+          </div>
+          <a class="Card_VerMas" href="#">Ver Más....</a>
+        </article>
+        <article class="Card">
+          <div class="Colocar">
+            <a href="#">
+              Tema 3 
+              <i class="fa fa-mas icon-Mas"></i>
+            </a>
+            <div class="Acordion">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+            </div>
+          </div>
+          <a class="Card_VerMas" href="Formulario_Agregar.html">Ver Más....</a>
+        </article>
+        <article class="Card">
+          <div class="Colocar">
+            <a href="#">
+              Tema 4
+              <i class="fa fa-mas icon-Mas"></i>
+            </a>
+            <div class="Acordion">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+            </div>
+          </div>
+          <a class="Card_VerMas" href="#">Ver Más....</a>
+        </article>
+        <article class="Card">
+          <div class="Colocar">
+            <a href="#">
+              Tema 5 
+              <i class="fa fa-mas icon-Mas"></i>
+            </a>
+            <div class="Acordion">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+            </div>
+          </div>
+          <a class="Card_VerMas" href="#">Ver Más....</a>
+        </article>
+      </section>
+      <section class="Contenido_Panel_Derecho">
+        <article class="Card Card_Public">
+          <h2 class="Card_Titulo_Public">Publicaciones</h2>
+          <figure>
+            <img src="Imagenes/Img_1.gif" class="Img" />
+            <figcaption id="NombreImg">
+              <a class="Card_VerMas" href="#">Ver Más....</a>
+            </figcaption>
+          </figure>
+          <p class="Card_Descrip">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </article>
+        <section class="Contenido_Panel_Derecho">
+          <article class="Card">
+            <h2 class="Card_Titulo_Public">Contactenos</h2>
+
+            <div class="contact_form">
+              <div class="formulario">
+                <h3>Escríbenos y en breve los pondremos en contacto contigo</h3>
+
+                <form action="submeter-formulario.php" method="post">
+                  <p class="Card_Titulo"  >
+                      <div class="Campos_FormuTex">
+                    <label for="nombre" class="colocar_nombre" 
+                      >Nombre
+                      <span class="obligatorio" >:</span>
+                    </label>
+                </div>
+                    <input class="Recuadro_Formu" 
+                      type="text"
+                      name="introducir_nombre"
+                      id="nombre"
+                      required="obligatorio"
+                      placeholder="Escribe tu nombre"
+                    />
+                
+                  </p>
+
+                  <p class="Card_Titulo">
+                      <div class="Campos_FormuTex">
+                    <label for="email" class="colocar_email"
+                      >Email
+                      <span class="obligatorio">:</span>
+                    </label>
+                </div>
+                    <input class="Recuadro_Formu" 
+                      type="email"
+                      name="introducir_email"
+                      id="email"
+                      required="obligatorio"
+                      placeholder="Escribe tu Email"
+                    />
+                  </p>
+
+                  <p class="Card_Titulo">
+                         <div class="Campos_FormuTex">
+                    <label for="mensaje" class="colocar_mensaje"
+                      >Descripción
+                      <span class="obligatorio">:</span>
+                    </label>
+                        </div>
+                    <textarea class="Recuadro_Formu" 
+                      name="introducir_mensaje"
+                      class="texto_mensaje"
+                      id="mensaje"
+                      required="obligatorio"
+                      placeholder="Deja aquí tu comentario..."
+                    ></textarea>
+                  </p>
+
+                  <div class="Boton_Enviar">
+                    <button type="submit" name="enviar_formulario">
+                      <p>Enviar</p>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </article>
+          
+        
+      </section>
+      
+    </section>
+
+   
+    
+</section>
+<footer class="Contenido_PanelInferior" >
+    <a href="file:///C:/Users/CSALAD8/Desktop/Maquetacci%C3%B3n/Index.html">2021</a>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="JQUERY/jquery.js"></script>
+  </body>
+</html>
