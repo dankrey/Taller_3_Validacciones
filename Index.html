@@ -13,20 +13,91 @@
       <h1 class="Cabecera_Titulo">Taller Maestro Detalle</h1>
     </header>
     <nav class="Menu">
-      <a class="Menu_Opcion" href="http://www.google.com" target="_blank">
-        <button class="btn btn-1 btn-sep icon-Agregar">AGREGAR</button>
+      <a class="Menu_Opcion" href="#miNodo" >
+        <button class="btn btn-1 btn-sep icon-Agregar " >AGREGAR</button>
       </a>
       <a
         class="Menu_Opcion"
         href="https://www.uniboyaca.edu.co/"
-        target="_blank"
+        
         > <button class="btn btn-2 btn-sep icon-Editar">MODIFICAR</button></a
       >
-      <a class="Menu_Opcion" href="https://es-la.facebook.com/" target="_blank"
+      <a class="Menu_Opcion" href="https://es-la.facebook.com/"
         > <button class="btn btn-3 btn-sep icon-Eliminar">BORRAR</button>
       </a>
      
     </nav>
+    
+    <div id="miNodo" class="modal">
+        <div class="modal-content">
+            <div class="modal-bar"><a href="#">x</a></div>
+            <div class="modal-text">
+
+              <div class="contact_form">
+
+                <div class="formulario">			
+                  <h1 style="text-align: center;">AGREGAR TEMA</h1>
+                    <h3>Escríbe y Agrega un Tema Cualquiera.</h3>
+            
+            
+                      <form  id="addUser" action="">				
+          
+                        
+                             <!-- <p>
+                              <label for="Codigo" class="">Código
+                                <span class="">*</span>
+                              </label>
+                                <input type="number" name="Codigo"  required="obligatorio" style="width: 45px;" >
+                            </p>
+                            <p>
+                              <Descripción  class="colocar_mensaje" >Descripción
+                                <span class="obligatorio">*</span>
+                              </label>                     
+                                                 <textarea name="Descrip" class="texto_mensaje"  required="obligatorio" placeholder="Deja aquí tu comentario..." maxlength="500"></textarea> 
+                                             </p>	
+                            <p>
+                              <label class="colocar_mensaje">Fecha de Registro             
+                             <input type="date"  name="Fecha_Reg"required>  								
+                              </p>
+                              <p>
+                                <label  class="colocar_mensaje">Fecha de Modificación           
+                               <input type="date"  name="Fecha_Mod" required>  								
+                                </p>  -->
+
+                                <div class="form-group">
+                                  <input class="form-control" type="number" name="age" min="10" max="100" placeholder="Age" required>
+                                </div>
+                                <div class="form-group">
+                                  
+                                  <textarea name="name" class="form-control"  required placeholder="Deja aquí tu comentario..." maxlength="500"></textarea> 
+                                </div>
+                                
+                                <div class="form-group">
+                                  <label  class="colocar_mensaje">Fecha de Registro           
+                                    <input type="date"  name="Fecha_Reg" required>  
+                                </div>
+                                <div class="form-group">
+                                  <label  class="colocar_mensaje">Fecha de Modificación           
+                                    <input type="date"  name="Fecha_Mod" required>  
+                                </div>
+                                <br>
+                                <br>
+                                <button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" type="submit">Enviar</button>
+                            
+                            <br>
+                            <br>
+                          
+                          
+                        
+                      </form>
+          
+                       
+                </div>	
+              </div>
+            
+            </div>
+        </div>
+    </div>
     <section class="Contenido">
       <section class="Contenido_Panel_Izquierdo">
         
@@ -37,7 +108,19 @@
               <i class="fa fa-mas icon-Mas"></i>
             </a>
             <div class="Acordion">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+              <div class="col-md-8">
+                <h3>USERS</h3>
+                <table id="userTable" class="table table-striped">
+                  <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th colspan="">Age</th>
+                    <th>Fecha</th>
+                   
+                  </tr>
+                </table>
+              </div>
+            </div>	
             </div>
           </div>
           <a class="Card_VerMas" href="Formulario_Agregar.html">Ver Más....</a>
@@ -101,8 +184,7 @@
             </figcaption>
           </figure>
           <p class="Card_Descrip">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            
           </p>
         </article>
 

@@ -12,40 +12,55 @@
     <div class="contact_form">
 
       <div class="formulario">			
-        <h1>Formulario de contacto</h1>
-          <h3>Escríbenos y en breve los pondremos en contacto contigo</h3>
+        <h1 style="text-align: center;">AGREGAR TEMA</h1>
+          <h3>Escríbe y Agrega un Tema Cualquiera.</h3>
   
   
-            <form action="submeter-formulario.php" method="post">				
+            <form action="Index.html" name="Formulario_Agregar"  id="Formulario_Agregar">				
   
               
                   <p>
-                    <label for="nombre" class="colocar_nombre">Código
-                      <span class="obligatorio">*</span>
+                    <label for="Codigo" class="">Código
+                      <span class="">*</span>
                     </label>
-                      <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Escribe tu nombre">
+                      <input type="number" name="Codigo" id="Codigo" required="obligatorio" style="width: 45px;" >
                   </p>
                   <p>
-                    <label for="mensaje" class="colocar_mensaje">Descripción
+                    <Descripción for="Descricion" class="colocar_mensaje" >Descripción
                       <span class="obligatorio">*</span>
                     </label>                     
-                                       <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Deja aquí tu comentario..."></textarea> 
-                                   </p>	  								
+                                       <textarea name="introducir_mensaje" class="texto_mensaje" id="Descrip" required="obligatorio" placeholder="Deja aquí tu comentario..." maxlength="500"></textarea> 
+                                   </p>	
+                  <p>
+                    <label for="Fecha_Reg" class="colocar_mensaje">Fecha de Registro             
+                   <input type="date" id="Fecha_Reg" name="Fecha_Reg"required>  								
+                    </p>
+                    <p>
+                      <label for="Fecha_Mod" class="colocar_mensaje">Fecha de Modificación           
+                     <input type="date" id="Fecha_Mod" name="Fecha_Reg" required>  								
+                      </p>
+                  <button type="submit" name="enviar_formulario" id="Btn_Agregar" class="btn btn-1 btn-sep icon-Agregar boton_Centrar" ><p>Enviar</p></button> 
+                  <br>
+                  <br>
                 
-                  <button type="submit" name="enviar_formulario" id="enviar" class="btn btn-1 btn-sep icon-Agregar"><p>Enviar</p></button>
-  
-                  <p class="aviso">
-                    <span class="obligatorio"> * </span>los campos son obligatorios.
-                  </p>					
               
             </form>
+
+            <p id="Result_Objt">Aqui va el objeto</p>
       </div>	
     </div>
   
     
-<footer class="Contenido_PanelInferior" >
-    <a href="file:///C:/Users/CSALAD8/Desktop/Maquetacci%C3%B3n/Index.html">2021</a>
-</footer>
+    <footer class="Contenido_PanelInferior" >
+      <i>
+        <img src="Imagenes/Img_2.gif" class="logo" />
+       
+      </i> 
+      <br>
+      <h2>Daniel Esteban Reyes Reyes</h2> 
+      <br>
+        <h2>2021</h2>
+    </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="JQUERY/jquery.js"></script>
   </body>
