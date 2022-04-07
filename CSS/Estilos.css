@@ -863,3 +863,15 @@ p{
   pointer-events: auto;
 
 }
+
+/* eVENTO MODAL DE EDITAR */
+#miNodo_2:target{
+  opacity: 1;
+  pointer-events: auto;
+
+}
+#miNodo_3:target{
+  opacity: 1;
+  pointer-events: auto;
+
+}

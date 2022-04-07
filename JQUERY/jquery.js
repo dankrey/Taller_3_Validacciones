@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 
 
-$("#addUser").submit((ev) => {
+$("#addTema").submit((ev) => {
   ev.preventDefault();
 
  
@@ -57,139 +57,140 @@ $("#addUser").submit((ev) => {
 //   $("#Prueba").text(Resultado);
 //   }
   
-var users = [
+var temas = [
   {
     id: 1,
-    name: "Bob",
-    address: "Manila",
-    age: 27,
-    Fecha_Mod:12
+    name: "Ciencias",
+    Categoria: "Tema_1",
+    Fecha_Reg:2022-04-04,
+    Fecha_Mod:2022-04-22
   },
   {
     id: 2,
-    name: "Harry",
-    address: "Baguio",
-    Fecha_Mod: 32
+    name: "Sociales",
+    Categoria: "Tema_2",
+    Fecha_Reg:2022-04-22,
+    Fecha_Mod:2022-04-23
   }
 ];
 
-$.each(users, function(i, user) {
-  appendToUsrTable(user);
+$.each(temas, function(i, user) {
+  agregarTemaTabla(user);
 });
 
 $("form").submit(function(e) {
   e.preventDefault();
 });
 
-$("form#addUser").submit(function() {
+$("form#addTema").submit(function() {
   var user = {};
   var nameInput = $('textarea[name="name"]').val();
-  var addressInput = $('input[name="Fecha_Reg"]').val();
-  var ageInput = $('input[name="age"]').val();
-  var fechaInput = $('input[name="Fecha_Mod"]').val();
-  if (nameInput && addressInput && ageInput && fechaInput) {
+  var fechaRegInput = $('input[name="Fecha_Reg"]').val();
+  var catInput = $('input[name="Categoria"]').val();
+  var fechaModInput = $('input[name="Fecha_Mod"]').val();
+  if (nameInput && fechaRegInput && catInput && fechaModInput) {
     $(this).serializeArray().map(function(data) {
       user[data.name] = data.value;
     });
-    var lastUser = users[Object.keys(users).sort().pop()];
+    var lastUser = temas[Object.keys(temas).sort().pop()];
     user.id = lastUser.id + 1;
 
-    addUser(user);
+    addTema(user);
   } else {
-    alert("All fields must have a valid value.");
+    alert("Todos los campos deben tener un valor válido.");
   }
 });
 
-function addUser(user) {
-  users.push(user);
-  appendToUsrTable(user);
+function addTema(user) {
+  temas.push(user);
+  agregarTemaTabla(user);
 }
 
-function editUser(id) {
-  users.forEach(function(user, i) {
+function editTema(id) {
+  temas.forEach(function(user, i) {
     if (user.id == id) {
       $(".modal-body").empty().append(`
-                <form id="updateUser" action="">
+                <form id="updateTema" action="">
                     <label for="name">Name</label>
                     <input class="form-control" type="text" name="name" value="${user.name}"/>
-                    <label for="address">Address</label>
-                    <input class="form-control" type="text" name="address" value="${user.address}"/>
-                    <label for="age">Age</label>
-                    <input class="form-control" type="number" name="age" value="${user.age}" min=10 max=100/>
+                    <label for="Fecha_Mod">Fecha_Reg</label>
+                    <input class="form-control" type="text" name="Fecha_Reg" value="${user.Fecha_Reg}"/>
+                    <label for="Fecha_Mod">Fecha_Mod</label>
+                    <input class="form-control" type="text" name="Fecha_Mod" value="${user.Fecha_Mod}"/>
+                    <label for="Codigo">Codigo</label>
+                    <input class="form-control" type="text" name="Codigo" value="${user.Categoria}" />
             `);
       $(".modal-footer").empty().append(`
-                    <button type="button" type="submit" class="btn btn-primary" onClick="updateUser(${id})">Save changes</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" type="submit" class="btn btn-primary" onClick="updateTema(${id})">Guardar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </form>
             `);
     }
   });
 }
 
-function deleteUser(id) {
-  var action = confirm("Are you sure you want to delete this user?");
-  var msg = "User deleted successfully!";
-  users.forEach(function(user, i) {
+function deleteTema(id) {
+  var action = confirm("¿Está seguro de que desea eliminar este tema?");
+  var msg = "¡Tema eliminado con éxito!";
+  temas.forEach(function(user, i) {
     if (user.id == id && action != false) {
-      users.splice(i, 1);
+      temas.splice(i, 1);
       $("#userTable #user-" + user.id).remove();
-      flashMessage(msg);
+      Messaje_info(msg);
     }
   });
 }
 
-function updateUser(id) {
-  var msg = "User updated successfully!";
+function updateTema(id) {
+  var msg = "¡Tema actualizado con éxito!";
   var user = {};
   user.id = id;
-  users.forEach(function(user, i) {
+  temas.forEach(function(user, i) {
     if (user.id == id) {
-      $("#updateUser").children("input").each(function() {
+      $("#updateTema").children("input").each(function() {
         var value = $(this).val();
         var attr = $(this).attr("name");
         if (attr == "name") {
           user.name = value;
-        } else if (attr == "address") {
-          user.address = value;
-        } else if (attr == "age") {
-          user.age = value;
+        } else if (attr == "Categoria") {
+          user.Fecha_Mod = value;
+        } else if (attr == "Codigo") {
+          user.Codigo = value;
         }
       });
-      users.splice(i, 1);
-      users.splice(user.id - 1, 0, user);
-      $("#userTable #user-" + user.id).children(".userData").each(function() {
+      temas.splice(i, 1);
+      temas.splice(user.id - 1, 0, user);
+      $("#userTable #user-" + user.id).children(".datosObjt").each(function() {
         var attr = $(this).attr("name");
         if (attr == "name") {
           $(this).text(user.name);
-        } else if (attr == "address") {
-          $(this).text(user.address);
+        } else if (attr == "Fecha_Mod") {
+          $(this).text(user.Fecha_Mod);
         } else {
-          $(this).text(user.age);
+          $(this).text(user.Codigo);
         }
       });
       $(".modal").modal("toggle");
-      flashMessage(msg);
+      Messaje_info(msg);
     }
   });
 }
 
-function flashMessage(msg) {
+function Messaje_info(msg) {
   $(".flashMsg").remove();
   $(".row").prepend(`
         <div class="col-sm-12"><div class="flashMsg alert alert-success alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> <strong>${msg}</strong></div></div>
     `);
 }
 
-function appendToUsrTable(user) {
+function agregarTemaTabla(user) {
   $("#userTable > tbody:last-child").append(`
         <tr id="user-${user.id}">
-            <td class="userData" name="name">${user.name}</td>
-            
-            '<td align="center">
-                <button class="btn btn-success form-control" onClick="editUser(${user.id})" data-toggle="modal" data-target="#myModal")">EDIT</button>
-            </td>
-            <td align="center">
-                <button class="btn btn-danger form-control" onClick="deleteUser(${user.id})">DELETE</button>
+            <td class="datosObjt" name="name">${user.name} <a class="Card_VerMas" href="Formulario_Agregar.html">Ver Más....</a></td>
+            '<td  class="datosObjt" name="Codigo">${user.Categoria}</td>
+            '<td class="datosObjt" type="date" name="Fecha_Reg">${user.Fecha_Reg}</td>
+             <td  class="datosObjt" type="date" name="Fecha_Mod">${user.Fecha_Mod}</td>
+           
             </td>
         </tr>
     `);
@@ -197,12 +198,24 @@ function appendToUsrTable(user) {
 
 
 
-// '<td class="userData" name="Fecha_Reg">${user.Fecha_Reg}</td>
-//  '<td  class="userData" name="Codigo">${user.age}</td>
-//  <td  class="userData" name="Fecha_Mod">${user.Fecha_Mod}</td>
 
 
 
 
+function ButtonActivaccion()
+{
+    var nameInput = $('#Tema_Val').val();
+    var catInput = $('#Descrip_Val').val();
+    var fechaRegInput= $('#Fecha_RegVal').val();
+    var fechaModInput = $('#Fecha_ModVal').val();
+
+    
+
+    if (nameInput && catInput && fechaRegInput && fechaModInput) {
+        $('#submitButton').attr('disabled', false);
+    } else {
+        $('#submitButton').attr('disabled', true);
+    }
+}
 
 

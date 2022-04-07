@@ -18,15 +18,17 @@
       </a>
       <a
         class="Menu_Opcion"
-        href="https://www.uniboyaca.edu.co/"
+        href="#miNodo_2"
         
         > <button class="btn btn-2 btn-sep icon-Editar">MODIFICAR</button></a
       >
-      <a class="Menu_Opcion" href="https://es-la.facebook.com/"
+      <a class="Menu_Opcion" href="#miNodo_3"
         > <button class="btn btn-3 btn-sep icon-Eliminar">BORRAR</button>
       </a>
      
     </nav>
+
+    <!-- Modal de Formulario -->
     
     <div id="miNodo" class="modal">
         <div class="modal-content">
@@ -40,7 +42,7 @@
                     <h3>Escríbe y Agrega un Tema Cualquiera.</h3>
             
             
-                      <form  id="addUser" action="">				
+                      <form  id="addTema" action="">				
           
                         
                              <!-- <p>
@@ -65,24 +67,25 @@
                                 </p>  -->
 
                                 <div class="form-group">
-                                  <input class="form-control" type="number" name="age" min="10" max="100" placeholder="Age" required>
+                                  <label  class="colocar_mensaje">Nombre del Tema 
+                                  <input class="form-control"  name="Categoria"  placeholder="Tema a Colocar" id="Tema_Val"  onchange="ButtonActivaccion()" required>
                                 </div>
                                 <div class="form-group">
                                   
-                                  <textarea name="name" class="form-control"  required placeholder="Deja aquí tu comentario..." maxlength="500"></textarea> 
+                                  <textarea name="name" class="form-control"  required placeholder="Deja aquí tu comentario..." id="Descrip_Val"  onchange="ButtonActivaccion()" maxlength="500"></textarea> 
                                 </div>
                                 
                                 <div class="form-group">
                                   <label  class="colocar_mensaje">Fecha de Registro           
-                                    <input type="date"  name="Fecha_Reg" required>  
+                                    <input type="date"  name="Fecha_Reg" id="Fecha_RegVal"  onchange="ButtonActivaccion()" required>  
                                 </div>
                                 <div class="form-group">
                                   <label  class="colocar_mensaje">Fecha de Modificación           
-                                    <input type="date"  name="Fecha_Mod" required>  
+                                    <input type="date"  name="Fecha_Mod" id="Fecha_ModVal"  onchange="ButtonActivaccion()" required>  
                                 </div>
                                 <br>
                                 <br>
-                                <button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" type="submit">Enviar</button>
+                                <button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" type="submit" id="submitButton" disabled >Enviar</button>
                             
                             <br>
                             <br>
@@ -98,6 +101,105 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal de Modificar formulario -->
+
+
+ <div id="miNodo_2" class="modal">
+        <div class="modal-content">
+            <div class="modal-bar"><a href="#">x</a></div>
+            <div class="modal-text">
+
+              <div class="contact_form">
+
+                <div class="formulario">			
+                  <h1 style="text-align: center;">Modificar Tema</h1>
+                    <h3>Edita y mira un Tema Cualquiera.</h3>
+            
+            
+                      <form  id="Form_Editar" action="">				
+          
+                  
+                                <div class="form-group">
+                                  <input id="id" class="form-control" type="number" name="id_Objeto" min="0" max="100" placeholder="Buscar por id" required>
+                                  <br>
+                                  <br>
+                                  <i><button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" onClick="editUser" type="">Buscar</button></i>
+                                </div> 
+                                
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" type="submit">Guardar</button>
+                            
+                            <br>
+                            <br>
+                          
+                          
+                        
+                      </form>
+          
+                       
+                </div>	
+              </div>
+            
+            </div>
+        </div>
+    </div>
+
+
+     <!-- Modal de Eliminar formulario -->
+
+
+ <div id="miNodo_3" class="modal">
+  <div class="modal-content">
+      <div class="modal-bar"><a href="#">x</a></div>
+      <div class="modal-text">
+
+        <div class="contact_form">
+
+          <div class="formulario">			
+            <h1 style="text-align: center;">Eliminar Tema</h1>
+              <h3>Elimina Cualquiera Tema.</h3>
+      
+      
+                <form  id="Form_Eliminar" action="">				
+    
+                  
+                   
+
+                          <div class="form-group">
+                            <input id="id" class="form-control" type="number" name="id_Objeto" min="0" max="100" placeholder="Buscar por id" required>
+                            <br>
+                            <br>
+                            <i><button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" onClick="editUser" type="">Buscar</button></i>
+                          </div> 
+                          
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" type="submit">Eliminar</button>
+                      
+                      <br>
+                      <br>
+                    
+                    
+                  
+                </form>
+    
+                 
+          </div>	
+        </div>
+      
+      </div>
+  </div>
+</div>
+
+
+
+
     <section class="Contenido">
       <section class="Contenido_Panel_Izquierdo">
         
@@ -109,13 +211,11 @@
             </a>
             <div class="Acordion">
               <div class="col-md-8">
-                <h3>USERS</h3>
-                <table id="userTable" class="table table-striped">
+                
+                <table id="userTable" class="">
                   <tr>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th colspan="">Age</th>
-                    <th>Fecha</th>
+                   
+                    
                    
                   </tr>
                 </table>
@@ -123,7 +223,7 @@
             </div>	
             </div>
           </div>
-          <a class="Card_VerMas" href="Formulario_Agregar.html">Ver Más....</a>
+         
         </article>
         <article class="Card">
           <div class="Colocar">
@@ -212,7 +312,32 @@
       
     </section>
 
-   
+   <!-- Modal de Agregar -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Update Usert</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+<!-- Modal de Modificar -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Update Usert</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
     
 </section>
 <footer class="Contenido_PanelInferior" >
