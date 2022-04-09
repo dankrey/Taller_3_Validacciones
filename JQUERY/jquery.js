@@ -108,74 +108,107 @@ function addTema(user) {
 
 // .modal-body
 
-function editTema(id) {
-  temas.forEach(function(user, i) {
-    if ($("#id") == id) {
+function editTema() {
+  console.log("ahhhh");
+  
+    
+    let user_select = FindId($("#id").val());
+    $("#Result_Edit").html("");
+    if ( user_select != null ) {
       $("#Result_Edit").append(`
+
+      <br>
+      <br>
+      <br>
                 <form id="updateTema" action="">
-                    <label for="name">Name</label>
-                    <input class="form-control" type="text" name="name" value="${user.name}"/>
-                    <label for="Fecha_Mod">Fecha_Reg</label>
-                    <input class="form-control" type="text" name="Fecha_Reg" value="${user.Fecha_Reg}"/>
-                    <label for="Fecha_Mod">Fecha_Mod</label>
-                    <input class="form-control" type="text" name="Fecha_Mod" value="${user.Fecha_Mod}"/>
-                    <label for="Codigo">Codigo</label>
-                    <input class="form-control" type="text" name="Codigo" value="${user.Categoria}"/>
+                    <label for="name">Nombre del Tema </label>
+                    <input class="form-control"  name="Categoria" id="Tema_Id" placeholder="Tema a Colocar" value="${user_select.Categoria}" required>
+                     <label for="Fecha_Mod">Fecha_Reg</label>
+                    <textarea name="name" class="form-control" id="Descrip_Id"  required  > ${user_select.name}</textarea> 
+                     <label for="Fecha_Mod">Fecha de Registro</label>
+                    <input class="form-control" type="text" name="Fecha_Reg" id="Fecha_Id" value="${user_select.Fecha_Reg}"/>
+                    <label for="Codigo">Fecha de Modificación </label>
+                    <input   name="Fecha_Mod"  id="Fecha_Id"  value="${user_select.Fecha_Mod}"  required>  
+                   
             `);
       $("#Result_Edit").append(`
-                    <button type="button" type="submit" class="btn btn-primary" onClick="updateTema(${id})">Guardar</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <br>
+                    <button type="button" type="submit" class="btn btn-1 btn-sep icon-Agregar boton_Centrar" onClick="updateTema(${user_select.id})">Guardar</button>
+                  
+              
                 </form>
             `);
-    }
-  });
+    };
+       // <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 }
 
-function deleteTema(id) {
-  var action = confirm("¿Está seguro de que desea eliminar este tema?");
-  var msg = "¡Tema eliminado con éxito!";
-  temas.forEach(function(user, i) {
-    if (user.id == id && action != false) {
-      temas.splice(i, 1);
-      $("#userTable #user-" + user.id).remove();
-      Messaje_info(msg);
+function FindId(id){
+  console.log(id);
+  for(let item of temas){
+    console.log(item.id,id);
+    if (item.id == id){
+      return item;
+    }
+
+  }
+    return null;
+};
+
+
+function deleteTema() {
+
+  var msg = "¡Tema actualizado con éxito!";
+  $("#userTable > tbody").html("");
+  var id = $("#id_Elimnar").val();
+  var  index =  -1;
+  temas.forEach(function(user,i) {
+
+    if (user.id == id) {
+      index = i;
     }
   });
+
+  if(index >= 0){
+
+    //i es para  eleminar elementos primer parametro donde va eliminar y el segundo es la cantidad de elementos ah eleminar
+
+      temas.splice(index,1)
+  }
+
+  temas.forEach(function(user,i) {
+    agregarTemaTabla(temas[i])
+  });
+
+   
+
+  // var action = confirm("¿Está seguro de que desea eliminar este tema?");
+  // var msg = "¡Tema eliminado con éxito!";
+  // temas.forEach(function(user, i) {
+  //   if (user.id == id && action != false) {
+  //     temas.splice(i, 1);
+  //     $("#userTable #user-" + user.id).remove();
+  //     Messaje_info(msg);
+  //   }
+  // });
 }
 
 function updateTema(id) {
   var msg = "¡Tema actualizado con éxito!";
-  var user = {};
-  user.id = id;
+  $("#userTable > tbody").html("");
   temas.forEach(function(user, i) {
     if (user.id == id) {
-      $("#updateTema").children("input").each(function() {
-        var value = $(this).val();
-        var attr = $(this).attr("name");
-        if (attr == "name") {
-          user.name = value;
-        } else if (attr == "Categoria") {
-          user.Fecha_Mod = value;
-        } else if (attr == "Codigo") {
-          user.Codigo = value;
-        }
-      });
-      temas.splice(i, 1);
-      temas.splice(user.id - 1, 0, user);
-      $("#userTable #user-" + user.id).children(".datosObjt").each(function() {
-        var attr = $(this).attr("name");
-        if (attr == "name") {
-          $(this).text(user.name);
-        } else if (attr == "Fecha_Mod") {
-          $(this).text(user.Fecha_Mod);
-        } else {
-          $(this).text(user.Codigo);
-        }
-      });
-      $(".modal").modal("toggle");
-      Messaje_info(msg);
-    }
-  });
+      temas[i] = {
+      id: user.id,
+      name: $('#Descrip_Id').val(),
+      Categoria: $('#Tema_Id').val(),
+      Fecha_Reg:user.Fecha_Reg,
+      Fecha_Mod:$('#Fecha_Id').val()
+    };
+  }
+    agregarTemaTabla(temas[i])
+
+   });
+
 }
 
 function Messaje_info(msg) {
@@ -224,13 +257,15 @@ function ButtonActivaccion()
 
 
 
-function ParImpar(Fecha) {
+function Fecha_Validar() {
   // caso base
-  var hoy             = new Date();
+  let hoy             = new Date();
   // var fechaFormulario = $('#Fecha_RegVal').val();
   // var fechaFormulario = new Date('2016-11-10');
 
-  let fechaFormulario = $('#Fecha_RegVal').val().trim();
+  let fechaFormulario = $('#Fecha_RegVal').val();
+  let fecha              = new Date(fechaFormulario);
+
 
 
   
@@ -238,65 +273,18 @@ function ParImpar(Fecha) {
   // Comparamos solo las fechas => no las horas!!
   hoy.setHours(0,0,0,0);  // Lo iniciamos a 00:00 horas
   
-  if (hoy <= fechaFormulario) {
+  if (hoy <= fecha) {
     
-     alert("Fecha a partir de hoy");
+     false;
   }
   else {
-   
-    alert("La Fecha Introducida es Pasada Introduce una del Dia Actual");
+   true;
+
+   alert("La Fecha Introducida es Pasada Introduce una del Dia Actual");
+  //  $("#resultado_P").text("La Fecha Introducida es Pasada Introduce una del Dia Actual");
+  
   }
-}
-
-// $("#addTema").submit((ev) => {
-//   ev.preventDefault();
-//   let Fecha = $("#Fecha_RegVal").val();
-//   let resultado_P = ParImpar(Fecha);
-
-   
-  
-//   $("#resultado_P").val = resultado_P;
+};
 
 
 
-// });
-
-// $(document).ready(() => {
-//   $('.error').hide();
-
-//   $('#addTema').submit(function(evento) {
-//       evento.preventDefault();
-//       $('.error').hide();
-//       var hoy             = new Date();
-  
-  
-//       hoy.setHours(0,0,0,0);  // Lo iniciamos a 00:00 horas
-
-//       let fecha = $('#Fecha_RegVal').val().trim();
-
-//       if (!fecha.length) {
-//           $('#obligatorio').show();
-//           return;
-//       }
-
-//       if (hoy <= !fecha.length) {
-  
-//             alert("Fecha a partir de hoy");
-//           }
-
-          
-      
-
-      
-
-//       $('#resultado').text(`La fecha es: ${Fecha_RegVal}`);
-//   });
-// });
-
-// function fechaValida(Fecha_RegVal) {
- 
-//   let patron             = new Date();
-  
-  
-//   return patron.test(Fecha_RegVal);
-// }
