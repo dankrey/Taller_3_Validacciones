@@ -78,6 +78,7 @@
                                 <div class="form-group">
                                   <label  class="colocar_mensaje">Fecha de Registro           
                                     <input type="date"  name="Fecha_Reg" id="Fecha_RegVal"  onchange="ButtonActivaccion()" required>  
+                                    <span id="resultado_P"></span>
                                 </div>
                                 <div class="form-group">
                                   <label  class="colocar_mensaje">Fecha de Modificación           
@@ -85,7 +86,7 @@
                                 </div>
                                 <br>
                                 <br>
-                                <button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" type="submit" id="submitButton" disabled >Enviar</button>
+                                <button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" type="submit" id="submitButton"  disabled >Enviar</button>
                             
                             <br>
                             <br>
@@ -124,9 +125,14 @@
                                   <input id="id" class="form-control" type="number" name="id_Objeto" min="0" max="100" placeholder="Buscar por id" required>
                                   <br>
                                   <br>
-                                  <i><button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" onClick="editUser" type="">Buscar</button></i>
+                                  <i><button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" onClick="editTema" >Buscar</button></i>
                                 </div> 
-                                
+                                <table id="Result_Edit" class="">
+                                  <tr>
+                                    <th></th>
+                                    
+                                  </tr>
+                                </table>
                                 <br>
                                 <br>
                                 <br>

@@ -106,10 +106,12 @@ function addTema(user) {
   agregarTemaTabla(user);
 }
 
+// .modal-body
+
 function editTema(id) {
   temas.forEach(function(user, i) {
-    if (user.id == id) {
-      $(".modal-body").empty().append(`
+    if ($("#id") == id) {
+      $("#Result_Edit").append(`
                 <form id="updateTema" action="">
                     <label for="name">Name</label>
                     <input class="form-control" type="text" name="name" value="${user.name}"/>
@@ -118,9 +120,9 @@ function editTema(id) {
                     <label for="Fecha_Mod">Fecha_Mod</label>
                     <input class="form-control" type="text" name="Fecha_Mod" value="${user.Fecha_Mod}"/>
                     <label for="Codigo">Codigo</label>
-                    <input class="form-control" type="text" name="Codigo" value="${user.Categoria}" />
+                    <input class="form-control" type="text" name="Codigo" value="${user.Categoria}"/>
             `);
-      $(".modal-footer").empty().append(`
+      $("#Result_Edit").append(`
                     <button type="button" type="submit" class="btn btn-primary" onClick="updateTema(${id})">Guardar</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </form>
@@ -219,3 +221,82 @@ function ButtonActivaccion()
 }
 
 
+
+
+
+function ParImpar(Fecha) {
+  // caso base
+  var hoy             = new Date();
+  // var fechaFormulario = $('#Fecha_RegVal').val();
+  // var fechaFormulario = new Date('2016-11-10');
+
+  let fechaFormulario = $('#Fecha_RegVal').val().trim();
+
+
+  
+  
+  // Comparamos solo las fechas => no las horas!!
+  hoy.setHours(0,0,0,0);  // Lo iniciamos a 00:00 horas
+  
+  if (hoy <= fechaFormulario) {
+    
+     alert("Fecha a partir de hoy");
+  }
+  else {
+   
+    alert("La Fecha Introducida es Pasada Introduce una del Dia Actual");
+  }
+}
+
+// $("#addTema").submit((ev) => {
+//   ev.preventDefault();
+//   let Fecha = $("#Fecha_RegVal").val();
+//   let resultado_P = ParImpar(Fecha);
+
+   
+  
+//   $("#resultado_P").val = resultado_P;
+
+
+
+// });
+
+// $(document).ready(() => {
+//   $('.error').hide();
+
+//   $('#addTema').submit(function(evento) {
+//       evento.preventDefault();
+//       $('.error').hide();
+//       var hoy             = new Date();
+  
+  
+//       hoy.setHours(0,0,0,0);  // Lo iniciamos a 00:00 horas
+
+//       let fecha = $('#Fecha_RegVal').val().trim();
+
+//       if (!fecha.length) {
+//           $('#obligatorio').show();
+//           return;
+//       }
+
+//       if (hoy <= !fecha.length) {
+  
+//             alert("Fecha a partir de hoy");
+//           }
+
+          
+      
+
+      
+
+//       $('#resultado').text(`La fecha es: ${Fecha_RegVal}`);
+//   });
+// });
+
+// function fechaValida(Fecha_RegVal) {
+ 
+//   let patron             = new Date();
+  
+  
+//   return patron.test(Fecha_RegVal);
+// }
