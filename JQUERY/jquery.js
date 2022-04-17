@@ -234,7 +234,7 @@ function agregarTemaTabla(user) {
 
   
   <tr id="user-${user.id}">
-  <td class="datosObjt" name="name">${user.name} <a class="Card_VerMas" href="Formulario_Agregar.html">Ver Más....</a></td>
+  <td class="datosObjt" name="name">${user.name} </td>
   
         
     `);
