@@ -6,6 +6,7 @@
     <link rel="Stylesheet" href="CSS/Estilos.css" />
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <script src="https://kit.fontawesome.com/7aa93029b3.js" crossorigin="anonymous"></script>
+    
   </head>
   <body>
     
@@ -167,8 +168,26 @@
                           <br>
                           <br>
                           <br>
-                          <button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" onclick="deleteTema()" type="submit">Eliminar</button>
-                      
+
+                          <button  class="btn btn-1 btn-sep icon-Eliminar boton_Centrar " onclick="jmgModal('miventana',{
+                            title: 'Eliminar Tema',
+                            width: 400,
+                            height: 40,
+                            
+                            
+                            content:  '<img src=\'Imagenes/Notificaccion.png\'>'},
+                            ['Aceptar',function(){
+                              deleteTema()
+                                //  alert('Has pulsado Aceptar. La ventana se cierra automáticamente');
+                            }],
+                            ['Cancelar',function(){
+                                
+                            }]);"
+                            >Eliminar</button>
+                             
+                          <!-- <button class="btn btn-1 btn-sep icon-Eliminar boton_Centrar"  onclick="deleteTema()"  >Eliminar</button> -->
+                         
+                          <!-- onclick="deleteTema()" -->
                       <br>
                       <br>
                     
@@ -192,77 +211,43 @@
 
     <section class="Contenido">
       <section class="Contenido_Panel_Izquierdo">
-        
-        <article class="Card">
+       
+
+        <article class="Card  ">
           <div class="Colocar">
             <a href="#">
               Tema 1 
               <i class="fa fa-mas icon-Mas"></i>
             </a>
-            <div class="Acordion">
+            <div class="Acordion" >
               <div class="col-md-8">
                 
-                <table id="userTable" class="">
-                  <tr>
-                   
-                    
-                   
-                  </tr>
-                </table>
+                <table id="userTable" >
+
+         
+                 
+                <tr>
+                  
+                 
+                  
+                 
+                </tr>
+               
+              </table>
+            
+              
               </div>
             </div>	
             </div>
           </div>
          
         </article>
-        <article class="Card">
-          <div class="Colocar">
-            <a href="#">
-              Tema 2 
-              <i class="fa fa-mas icon-Mas"></i>
-            </a>
-            <div class="Acordion">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-            </div>
-          </div>
-          <a class="Card_VerMas" href="#">Ver Más....</a>
-        </article>
-        <article class="Card">
-          <div class="Colocar">
-            <a href="#">
-              Tema 3 
-              <i class="fa fa-mas icon-Mas"></i>
-            </a>
-            <div class="Acordion">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-            </div>
-          </div>
-          <a class="Card_VerMas" href="Formulario_Agregar.html">Ver Más....</a>
-        </article>
-        <article class="Card">
-          <div class="Colocar">
-            <a href="#">
-              Tema 4
-              <i class="fa fa-mas icon-Mas"></i>
-            </a>
-            <div class="Acordion">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-            </div>
-          </div>
-          <a class="Card_VerMas" href="#">Ver Más....</a>
-        </article>
-        <article class="Card">
-          <div class="Colocar">
-            <a href="#">
-              Tema 5 
-              <i class="fa fa-mas icon-Mas"></i>
-            </a>
-            <div class="Acordion">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-            </div>
-          </div>
-          <a class="Card_VerMas" href="#">Ver Más....</a>
-        </article>
+
+
+
+
+
+       
       </section>
       <section class="Contenido_Panel_Derecho">
         <article class="Card Card_Public">
@@ -303,31 +288,32 @@
     </section>
 
    <!-- Modal de Agregar -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Update Usert</h4>
-      </div>
-      <div class="modal-body"></div>
-      <div class="modal-footer"></div>
-    </div>
-  </div>
-</div>
-<!-- Modal de Modificar -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Update Usert</h4>
-      </div>
-      <div class="modal-body"></div>
-      <div class="modal-footer"></div>
-    </div>
-  </div>
-</div>
+
+
+
+
+
+<!-- Modal de eliminar -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 </section>
 <footer class="Contenido_PanelInferior" >
